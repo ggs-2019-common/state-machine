@@ -1,5 +1,5 @@
 # state-machine
-State machine template that use enum (state machine in C#, example in unity for game loop)
+State machine template that use enum (state machine in C#, example for Unity 3D)
 
 ## how to use
 - create an enum list for states
@@ -31,8 +31,10 @@ public class GameStateMachine : StateMachine<GameState, GameCommand>
 - implement a constructor for your state machine that use base constructor with your initial state as parameter, and add transitions (defined by the current state, the command and the next state)
 ```
 public GameStateMachine() : base(GameState.InGame)
-    {
-        transitions.Add(new StateTransition<GameState, GameCommand>     (GameState.MainMenu,    GameCommand.Start), GameState.InGame);
+{
+    transitions.Add(new StateTransition<GameState, GameCommand>     (GameState.MainMenu,    GameCommand.Start), GameState.InGame);
+    [...]
+}
 ```
 
 - you can now use your custom state machine : GetNext(Command) is used for determining which state would be the next using a command on the current state, MoveNext(Command) is used to perform the transition
